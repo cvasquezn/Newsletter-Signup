@@ -44,10 +44,10 @@ app.post("/", function(req, res){
 	var jsonData = JSON.stringify(data);
 
 	var options = {
-		url: "https://us19.api.mailchimp.com/3.0/lists/3245e38440",
+		url: process.env.API_URL, //set on config vars of heroku. URL get from mailchimp
 		method:"POST",
 		headers: {
-			"Authorization":"cvasquez 621cab0436e742b918ef473013dcda7a-us19"
+			"Authorization": process.env.AUTHORIZATION, //set on config vars of heroku. APi KEY get from mailchimp
 		},
 		body: jsonData  //coment this line to make the conection fail with mailchimp so you'll be able to test failure page
 	}
